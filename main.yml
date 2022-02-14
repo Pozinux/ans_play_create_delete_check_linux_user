@@ -49,6 +49,8 @@
     ansible.builtin.shell: |
       echo -e "\n\e[0;32m--- $(hostname) - $(date +%Y%m%d%H%M%S) ---\e[0;m\n" >>{{ target_dir_temp }}/{{ inventory_hostname_short }}.log 2>&1
 
+  # NOTE : Je copie puis exécute le script mais le module "script" le fait normalement automatiquement. Je ne l'ai su qu'après avoir fait ce playbook.
+
   - name: "Copy script TEMPLATE to remote"
     ansible.builtin.template: 
       src: "{{ my_remote_template_script_name }}"
